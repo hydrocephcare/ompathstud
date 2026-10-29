@@ -14,6 +14,7 @@ const studyLinks = [
 const exploreLinks = [
   { to: "/", label: "Home" },
   { to: "/stories", label: "Stories" },
+  { to: "https://www.ompathstudy.com/friend-zone", label: "Friend Zone — Play with friends" },
   { to: "/exams", label: "Weekly Exams" },
   { to: "/about", label: "About the Founder" },
   { to: "/admin", label: "Dashboard" },
