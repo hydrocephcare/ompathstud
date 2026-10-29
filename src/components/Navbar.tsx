@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { BookOpen, FileText, GraduationCap, Home, LayoutDashboard, ListChecks, Menu, BookOpenCheck, Trophy, ChevronRight } from "lucide-react";
+import { BookOpen, FileText, GraduationCap, Home, LayoutDashboard, ListChecks, Menu, BookOpenCheck, Trophy, ChevronRight, Gamepad2 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import ThemeToggle from "./ThemeToggle";
@@ -8,6 +8,7 @@ import ompathLogo from "@/assets/ompath-logo.png";
 const links = [
   { to: "/", label: "Home", icon: Home },
   { to: "/stories", label: "Stories", icon: BookOpenCheck },
+  { to: "https://www.ompathstudy.com/friend-zone", label: "Friend Zone", icon: Gamepad2, external: true },
   { to: "/admin", label: "Dashboard", icon: LayoutDashboard },
 ];
 
@@ -134,7 +135,15 @@ export default function Navbar() {
               ))}
             </div>
 
-            {links.map((l) => (
+            {links.map((l) => l.external ? (
+              <a
+                key={l.to}
+                href={l.to}
+                className="inline-flex items-center gap-1.5 rounded-md bg-fuchsia-300/15 px-3 py-1.5 text-sm font-semibold text-fuchsia-100 transition-colors hover:bg-fuchsia-300/25 hover:text-white"
+              >
+                <l.icon className="h-3.5 w-3.5" />{l.label}
+              </a>
+            ) : (
               <Link
                 key={l.to}
                 to={l.to}
@@ -170,7 +179,16 @@ export default function Navbar() {
                 <div className="flex flex-col overflow-y-auto h-[calc(100%-65px)]">
                   {/* Quick links */}
                   <div className="border-b border-white/10 px-3 py-3">
-                    {links.map((l) => (
+                    {links.map((l) => l.external ? (
+                      <a
+                        key={l.to}
+                        href={l.to}
+                        onClick={() => setSidebarOpen(false)}
+                        className="flex items-center gap-3 rounded-lg bg-fuchsia-300/10 px-3 py-2.5 text-sm font-semibold text-fuchsia-100 transition-colors hover:bg-fuchsia-300/20 hover:text-white"
+                      >
+                        <l.icon className="h-4 w-4" />{l.label}
+                      </a>
+                    ) : (
                       <Link
                         key={l.to}
                         to={l.to}
