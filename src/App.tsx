@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import { AuthProvider } from "@/hooks/useAuth";
 import Navbar from "@/components/Navbar";
+import FriendZoneSpotlight from "@/components/FriendZoneSpotlight";
 import SiteFooter from "@/components/SiteFooter";
 import ScrollToTop from "@/components/ScrollToTop";
 import { Loader2 } from "lucide-react";
@@ -51,6 +52,7 @@ const App = () => (
           <BrowserRouter>
             <ScrollToTop />
             <Navbar />
+            <FriendZoneSpotlight />
             <Suspense fallback={<RouteLoader />}>
               <Routes>
                 <Route path="/" element={<Index />} />
