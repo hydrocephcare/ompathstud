@@ -135,7 +135,7 @@ export default function Navbar() {
               ))}
             </div>
 
-            {links.map((l) => l.external ? (
+            {links.map((l) => ("external" in l && l.external) ? (
               <a
                 key={l.to}
                 href={l.to}
@@ -179,7 +179,7 @@ export default function Navbar() {
                 <div className="flex flex-col overflow-y-auto h-[calc(100%-65px)]">
                   {/* Quick links */}
                   <div className="border-b border-white/10 px-3 py-3">
-                    {links.map((l) => l.external ? (
+                    {links.map((l) => ("external" in l && l.external) ? (
                       <a
                         key={l.to}
                         href={l.to}
