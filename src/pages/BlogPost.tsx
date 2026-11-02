@@ -1116,7 +1116,7 @@ const VOID_HTML_TAGS = new Set(["area", "base", "br", "col", "embed", "hr", "img
 
 function readRawHtmlBlock(lines: string[], start: number): { html: string; end: number } | null {
   const first = lines[start]?.trim() || "";
-  const rootMatch = first.match(/^<([a-z][a-z0-9:-]*)\\b/i);
+  const rootMatch = first.match(/^<([a-z][a-z0-9:-]*)\b/i);
   if (!rootMatch) return null;
   const tag = rootMatch[1].toLowerCase();
   if (VOID_HTML_TAGS.has(tag)) return { html: first, end: start + 1 };
@@ -1129,7 +1129,7 @@ function readRawHtmlBlock(lines: string[], start: number): { html: string; end: 
     parts.push(line);
     for (const match of line.matchAll(tagPattern)) {
       if (match[0].startsWith("</")) depth--;
-      else if (!/\\/\\s*>$/.test(match[0])) depth++;
+      else if (!match[0].trimEnd().endsWith("/>")) depth++;
     }
     if (depth <= 0 && parts.join("\\n").trim()) return { html: parts.join("\\n"), end: i + 1 };
   }
@@ -1200,7 +1200,7 @@ const ArticleContent = memo(function ArticleContent({ content, inlineRelated = [
 
  
     // Safely render author-supplied HTML/SVG diagrams instead of showing their tags as text.
-    if (/^<(?:svg|div|article|section|figure|table|thead|tbody|tr|td|th|p|ul|ol|li|pre|blockquote|details|summary|iframe|video|audio|picture|h[1-6])\\b/i.test(t)) {
+    if (/^<(?:svg|div|article|section|figure|table|thead|tbody|tr|td|th|p|ul|ol|li|pre|blockquote|details|summary|iframe|video|audio|picture|h[1-6])\b/i.test(t)) {
       flushList(); flushTable(); flushFlow(); flushPractice(); underSubheading = false;
       const block = readRawHtmlBlock(lines, i);
       if (block) {
