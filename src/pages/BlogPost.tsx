@@ -18,6 +18,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { markArticleVisited } from "@/lib/progress-store";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import DOMPurify from "dompurify";
 import { useAuth } from "@/hooks/useAuth";
 
 /* ─── Inline text: bold/italic ─── */
@@ -1110,6 +1111,31 @@ function extractToc(content: string): TocItem[] {
   return items;
 }
 
+/* ─── Safe raw HTML/SVG content support ─── */
+const VOID_HTML_TAGS = new Set(["area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"]);
+
+function readRawHtmlBlock(lines: string[], start: number): { html: string; end: number } | null {
+  const first = lines[start]?.trim() || "";
+  const rootMatch = first.match(/^<([a-z][a-z0-9:-]*)\\b/i);
+  if (!rootMatch) return null;
+  const tag = rootMatch[1].toLowerCase();
+  if (VOID_HTML_TAGS.has(tag)) return { html: first, end: start + 1 };
+
+  let depth = 0;
+  const tagPattern = new RegExp("</?" + tag + "\\b[^>]*>", "gi");
+  const parts: string[] = [];
+  for (let i = start; i < lines.length; i++) {
+    const line = lines[i];
+    parts.push(line);
+    for (const match of line.matchAll(tagPattern)) {
+      if (match[0].startsWith("</")) depth--;
+      else if (!/\\/\\s*>$/.test(match[0])) depth++;
+    }
+    if (depth <= 0 && parts.join("\\n").trim()) return { html: parts.join("\\n"), end: i + 1 };
+  }
+  return { html: parts.join("\\n"), end: lines.length };
+}
+
 /* ─── Article content renderer ─── */
 let _sec = 0;
 
@@ -1171,6 +1197,19 @@ const ArticleContent = memo(function ArticleContent({ content, inlineRelated = [
     if (i < skipUntil) continue;
     const line = lines[i];
     const t = line.trim();
+
+ 
+    // Safely render author-supplied HTML/SVG diagrams instead of showing their tags as text.
+    if (/^<(?:svg|div|article|section|figure|table|thead|tbody|tr|td|th|p|ul|ol|li|pre|blockquote|details|summary|iframe|video|audio|picture|h[1-6])\\b/i.test(t)) {
+      flushList(); flushTable(); flushFlow(); flushPractice(); underSubheading = false;
+      const block = readRawHtmlBlock(lines, i);
+      if (block) {
+        const safeHtml = DOMPurify.sanitize(block.html, { USE_PROFILES: { html: true, svg: true, svgFilters: true, mathMl: true } });
+        els.push(<div key={`html-block-${i}`} className="raw-article-html my-5 max-w-full overflow-x-auto" dangerouslySetInnerHTML={{ __html: safeHtml }} />);
+        i = block.end - 1;
+        continue;
+      }
+    }
 
     if (/^```/.test(t)) {
       if (codeBuf == null) {
