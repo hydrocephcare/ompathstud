@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f7fbff"/><stop offset="1" stop-color="#edf4fb"/></linearGradient>
+ <linearGradient id="navy" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#12304a"/><stop offset="1" stop-color="#1f5274"/></linearGradient>
+ <style>
+ text{font-family:Inter,Arial,sans-serif;fill:#17324a}
+ .title{font-size:34px;font-weight:750;fill:#fff}.sub{font-size:17px;fill:#dbeafe}
+ .h{font-size:21px;font-weight:700}.t{font-size:17px}.small{font-size:14px;fill:#526779}
+ .card{fill:#fff;stroke:#d6e2ed;stroke-width:2}.line{stroke:#47657c;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+ .red{stroke:#d94c4c;stroke-width:8;fill:none;stroke-linecap:round}.blue{stroke:#2476b8;stroke-width:7;fill:none;stroke-linecap:round}.green{stroke:#16876b;stroke-width:7;fill:none;stroke-linecap:round}
+ .label{font-size:16px;font-weight:700}.muted{fill:#637b8e}
+ </style>
+</defs>
+<rect width="1200" height="720" rx="28" fill="url(#bg)"/>
+<rect x="0" y="0" width="1200" height="112" rx="28" fill="url(#navy)"/>
+<rect x="0" y="84" width="1200" height="28" fill="url(#navy)"/>
+<text x="54" y="52" class="title">Suture materials: how to classify them</text><text x="56" y="82" class="sub">Two independent questions: will it be absorbed? and is it mono- or multifilament?</text>
+<rect x="55" y="150" width="520" height="465" rx="22" class="card"/><rect x="625" y="150" width="520" height="465" rx="22" class="card"/>
+<text x="95" y="200" class="h">By absorbability</text>
+<rect x="90" y="230" width="210" height="145" rx="16" fill="#e8f5ef" stroke="#9bcbb5" stroke-width="2"/><text x="110" y="270" class="label">Absorbable</text><text x="110" y="310" class="t">Vicryl • Monocryl</text><text x="110" y="340" class="t">PDS • catgut</text>
+<rect x="330" y="230" width="210" height="145" rx="16" fill="#eaf2fa" stroke="#9bb8d4" stroke-width="2"/><text x="350" y="270" class="label">Non-absorbable</text><text x="350" y="310" class="t">Nylon • Prolene</text><text x="350" y="340" class="t">Silk • polyester • steel</text>
+<text x="95" y="430" class="small">Synthetic absorbables are mainly hydrolysed.</text><text x="95" y="460" class="small">Catgut is enzymatically degraded.</text>
+<text x="665" y="200" class="h">By filament structure</text>
+<g transform="translate(680 245)">
+<path d="M0 40 C55 10 110 70 165 40 S275 10 330 40" stroke="#2476b8" stroke-width="10" fill="none" stroke-linecap="round"/>
+<text x="0" y="100" class="label">Monofilament</text><text x="0" y="130" class="small">One strand • less capillarity</text>
+<path d="M0 220 C55 190 110 250 165 220 S275 190 330 220" stroke="#16876b" stroke-width="5" fill="none"/><path d="M0 230 C55 200 110 260 165 230 S275 200 330 230" stroke="#16876b" stroke-width="5" fill="none"/><path d="M0 240 C55 210 110 270 165 240 S275 210 330 240" stroke="#16876b" stroke-width="5" fill="none"/>
+<text x="0" y="300" class="label">Multifilament / braided</text><text x="0" y="330" class="small">Several strands • good handling and knot security</text>
+</g></svg>
