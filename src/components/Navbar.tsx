@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { BookOpen, FileText, GraduationCap, Home, LayoutDashboard, ListChecks, Menu, BookOpenCheck, Trophy, ChevronRight, Gamepad2 } from "lucide-react";
+import { BookOpen, FileText, GraduationCap, Home, LayoutDashboard, ListChecks, Menu, BookOpenCheck, Trophy, ChevronRight, Gamepad2, FlaskConical } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import ThemeToggle from "./ThemeToggle";
@@ -8,6 +8,7 @@ import ompathLogo from "@/assets/ompath-logo.png";
 const links = [
   { to: "/", label: "Home", icon: Home },
   { to: "/stories", label: "Stories", icon: BookOpenCheck },
+  { to: "/research", label: "Research Hub", icon: FlaskConical },
   { to: "https://www.ompathstudy.com/friend-zone", label: "Friend Zone", icon: Gamepad2, external: true },
   { to: "/admin", label: "Dashboard", icon: LayoutDashboard },
 ];
