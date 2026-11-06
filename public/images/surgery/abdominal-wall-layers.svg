@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f7fbff"/><stop offset="1" stop-color="#edf4fb"/></linearGradient>
+ <linearGradient id="navy" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#12304a"/><stop offset="1" stop-color="#1f5274"/></linearGradient>
+ <style>
+ text{font-family:Inter,Arial,sans-serif;fill:#17324a}
+ .title{font-size:34px;font-weight:750;fill:#fff}.sub{font-size:17px;fill:#dbeafe}
+ .h{font-size:21px;font-weight:700}.t{font-size:17px}.small{font-size:14px;fill:#526779}
+ .card{fill:#fff;stroke:#d6e2ed;stroke-width:2}.line{stroke:#47657c;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+ .red{stroke:#d94c4c;stroke-width:8;fill:none;stroke-linecap:round}.blue{stroke:#2476b8;stroke-width:7;fill:none;stroke-linecap:round}.green{stroke:#16876b;stroke-width:7;fill:none;stroke-linecap:round}
+ .label{font-size:16px;font-weight:700}.muted{fill:#637b8e}
+ </style>
+</defs>
+<rect width="1200" height="720" rx="28" fill="url(#bg)"/>
+<rect x="0" y="0" width="1200" height="112" rx="28" fill="url(#navy)"/>
+<rect x="0" y="84" width="1200" height="28" fill="url(#navy)"/>
+<text x="54" y="52" class="title">Anterior abdominal wall: layers</text><text x="56" y="82" class="sub">Superficial to deep • the exact layers encountered depend on incision location</text>
+<rect x="55" y="145" width="1090" height="520" rx="22" class="card"/>
+<g transform="translate(95 190)">
+<rect x="0" y="0" width="550" height="48" rx="9" fill="#e9b99f" stroke="#fff" stroke-width="2"/><text x="20" y="31" class="label">Skin</text><rect x="0" y="60" width="550" height="48" rx="9" fill="#f5d36d" stroke="#fff" stroke-width="2"/><text x="20" y="91" class="label">Camper's fascia (fatty)</text><rect x="0" y="120" width="550" height="48" rx="9" fill="#f0bf58" stroke="#fff" stroke-width="2"/><text x="20" y="151" class="label">Scarpa's fascia (membranous)</text><rect x="0" y="180" width="550" height="48" rx="9" fill="#d88a78" stroke="#fff" stroke-width="2"/><text x="20" y="211" class="label">Muscle / aponeurosis</text><rect x="0" y="240" width="550" height="48" rx="9" fill="#8bb7d3" stroke="#fff" stroke-width="2"/><text x="20" y="271" class="label">Transversalis fascia</text><rect x="0" y="300" width="550" height="48" rx="9" fill="#f5d36d" stroke="#fff" stroke-width="2"/><text x="20" y="331" class="label">Extraperitoneal fat</text><rect x="0" y="360" width="550" height="48" rx="9" fill="#6cb69d" stroke="#fff" stroke-width="2"/><text x="20" y="391" class="label">Parietal peritoneum</text>
+<text x="0" y="465" class="small">Lateral abdominal wall: external oblique → internal oblique → transversus abdominis</text>
+<path d="M620 20h0v390" class="line"/>
+<text x="660" y="50" class="h">Clinical anatomy</text>
+<text x="660" y="100" class="t">• Midline incision passes through the linea alba.</text>
+<text x="660" y="155" class="t">• Lateral incisions may split or divide muscle layers.</text>
+<text x="660" y="210" class="t">• The arcuate line changes the posterior rectus sheath.</text>
+<text x="660" y="265" class="t">• Protect epigastric vessels and segmental nerves.</text>
+<text x="660" y="335" class="small">Schematic: not to scale. Anatomical variations occur.</text>
+</g></svg>
