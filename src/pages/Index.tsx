@@ -28,7 +28,7 @@ const PROOF = [
   "Written for Kenyan medical schools — MKU, UoN, KU, JKUAT",
 ];
 
-type RecentItem = { id: string; title: string; type: "article" | "mcq" | "flashcard" | "story"; category: string; created_at: string; slug?: string | null };
+type RecentItem = { id: string; title: string; type: "article" | "mcq" | "flashcard" | "story"; category: string; created_at: string; updated_at?: string | null; slug?: string | null };
 
 function timeAgo(dateStr: string): string {
   const diff = Date.now() - new Date(dateStr).getTime();
@@ -65,17 +65,17 @@ export default function Index() {
 
     // Load recently uploaded content (articles, mcqs, flashcards, stories)
     Promise.all([
-      supabase.from("articles").select("id, title, category, created_at, slug").eq("published", true).is("deleted_at", null).order("created_at", { ascending: false }).limit(8),
-      supabase.from("mcq_sets").select("id, title, category, created_at, slug").eq("published", true).is("deleted_at", null).order("created_at", { ascending: false }).limit(8),
-      supabase.from("flashcard_sets").select("id, title, category, created_at, slug").eq("published", true).is("deleted_at", null).order("created_at", { ascending: false }).limit(5),
-      supabase.from("stories").select("id, title, category, created_at, slug").eq("published", true).is("deleted_at", null).order("created_at", { ascending: false }).limit(5),
+      supabase.from("articles").select("id, title, category, created_at, updated_at, slug").eq("published", true).is("deleted_at", null).order("updated_at", { ascending: false }).limit(30),
+      supabase.from("mcq_sets").select("id, title, category, created_at, updated_at, slug").eq("published", true).is("deleted_at", null).order("updated_at", { ascending: false }).limit(30),
+      supabase.from("flashcard_sets").select("id, title, category, created_at, updated_at, slug").eq("published", true).is("deleted_at", null).order("updated_at", { ascending: false }).limit(30),
+      supabase.from("stories").select("id, title, category, created_at, slug").eq("published", true).is("deleted_at", null).order("created_at", { ascending: false }).limit(15),
     ]).then(([arts, mcqs, fcs, stories]) => {
       const items: RecentItem[] = [
         ...(arts.data || []).map(a => ({ ...a, type: "article" as const })),
         ...(mcqs.data || []).map(m => ({ ...m, type: "mcq" as const })),
         ...(fcs.data || []).map(f => ({ ...f, type: "flashcard" as const })),
         ...(stories.data || []).map(s => ({ ...s, type: "story" as const })),
-      ].sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+      ].sort((a, b) => new Date(b.updated_at || b.created_at).getTime() - new Date(a.updated_at || a.created_at).getTime());
       setRecentlyUploaded(items);
     });
   }, []);
@@ -325,7 +325,7 @@ export default function Index() {
             </div>
           ) : (
             <div className="overflow-hidden rounded-2xl border border-border bg-card">
-              {filteredRecent.slice(0, 10).map(item => {
+              {filteredRecent.slice(0, 15).map(item => {
                 const meta = typeMeta[item.type];
                 const Icon = meta.icon;
                 const subject = getSubjectKey(`${item.category} ${item.title}`);
@@ -339,7 +339,7 @@ export default function Index() {
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center gap-2 mb-0.5">
                         <span className={`rounded px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${meta.badge}`}>{meta.label}</span>
-                        <span className="text-[11px] text-muted-foreground">{timeAgo(item.created_at)}</span>
+                        <span className="text-[11px] text-muted-foreground">{timeAgo(item.updated_at || item.created_at)}</span>
                       </div>
                       <h4 className="truncate text-sm sm:text-base font-semibold text-foreground group-hover:text-primary transition-colors">{item.title}</h4>
                       <p className="truncate text-xs text-muted-foreground">{getCategoryDisplayName(item.category)}</p>
