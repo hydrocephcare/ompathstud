@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import type { ReactNode } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
   ArrowRight, ArrowUpRight, BarChart3, BookOpen, Building2, CheckCircle2,
@@ -46,7 +47,7 @@ function slugLabel(value: string) {
   return value.split("-").map((part) => part.charAt(0).toUpperCase() + part.slice(1)).join(" ");
 }
 
-function ActionLink({ to, children }: { to: string; children: React.ReactNode }) {
+function ActionLink({ to, children }: { to: string; children: ReactNode }) {
   return <Link to={to} className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition hover:opacity-90">{children}<ArrowRight className="h-4 w-4" /></Link>;
 }
 
