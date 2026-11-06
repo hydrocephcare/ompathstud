@@ -132,6 +132,26 @@ const OUTLINE: Trimester[] = [
   },
 ];
 
+const CURRENT_TRIMESTER = "Trimester I";
+const COURSE_RESOURCES: Record<string, { slug: string; label: string }> = {
+  "Surgical Incisions and Types of Suture Material": {
+    slug: "surgical-incisions-suture-materials-types-techniques",
+    label: "Surgical Incisions and Suture Materials",
+  },
+  "Nutrition and Fluid Therapy": {
+    slug: "nutrition-fluid-therapy-surgical-patients",
+    label: "Nutrition and Fluid Therapy in Surgical Patients",
+  },
+  "Preoperative Care": {
+    slug: "preoperative-care-assessment-risk-stratification-surgery",
+    label: "Preoperative Care",
+  },
+  "Postoperative Care / How to Assess the Postoperative Surgical Patient": {
+    slug: "postoperative-care-assessment-surgical-patient",
+    label: "Postoperative Care and Assessment",
+  },
+};
+
 const totalTopics = OUTLINE.reduce((sum, trimester) =>
   sum + trimester.courses.reduce((n, course) => n + course.topics.length, 0), 0);
 
@@ -254,8 +274,29 @@ export default function GeneralSurgeryCourseOutline() {
                         {course.topics.map((topic, index) => (
                           <li key={topic} className="flex items-start gap-3 rounded-lg px-2 py-2 text-sm leading-5 text-foreground transition hover:bg-muted/50">
                             <span className="mt-0.5 w-6 shrink-0 text-right text-xs font-semibold tabular-nums text-muted-foreground">{String(index + 1).padStart(2, "0")}</span>
-                            <span className="min-w-0 flex-1">{topic}</span>
-                            <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground/50" />
+                            <span className="min-w-0 flex-1">
+                              {COURSE_RESOURCES[topic] ? (
+                                <Link
+                                  to={`/blog/${COURSE_RESOURCES[topic].slug}`}
+                                  className="font-medium text-primary underline-offset-4 hover:underline"
+                                >
+                                  {topic}
+                                </Link>
+                              ) : topic}
+                              {trimester.name === CURRENT_TRIMESTER && (
+                                <span className="mt-1 block text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
+                                  {COURSE_RESOURCES[topic] ? "Current trimester · Revision resource available" : "Current trimester · Resource not yet available"}
+                                </span>
+                              )}
+                              {trimester.name !== CURRENT_TRIMESTER && (
+                                <span className="mt-1 block text-[10px] text-muted-foreground">Upcoming trimester</span>
+                              )}
+                            </span>
+                            {COURSE_RESOURCES[topic] ? (
+                              <span className="mt-0.5 shrink-0 rounded-full bg-primary/10 px-2 py-1 text-[10px] font-semibold text-primary">Read note</span>
+                            ) : (
+                              <span className="mt-0.5 shrink-0 text-[10px] text-muted-foreground">Not published</span>
+                            )}
                           </li>
                         ))}
                       </ol>
