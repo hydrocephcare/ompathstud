@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f7fbff"/><stop offset="1" stop-color="#edf4fb"/></linearGradient><linearGradient id="navy" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#12304a"/><stop offset="1" stop-color="#1f5274"/></linearGradient><style>text{font-family:Inter,Arial,sans-serif;fill:#17324a}.title{font-size:34px;font-weight:750;fill:#fff}.sub{font-size:17px;fill:#dbeafe}.h{font-size:21px;font-weight:700}.t{font-size:17px}.small{font-size:14px;fill:#526779}.card{fill:#fff;stroke:#d6e2ed;stroke-width:2}.label{font-size:16px;font-weight:700}.line{stroke:#47657c;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}</style></defs><rect width="1200" height="720" rx="28" fill="url(#bg)"/><rect width="1200" height="112" rx="28" fill="url(#navy)"/><rect y="84" width="1200" height="28" fill="url(#navy)"/><text x="54" y="52" class="title">Metabolic response to surgical stress</text><text x="56" y="82" class="sub">Tissue injury activates neuroendocrine and inflammatory pathways</text>
+<rect x="55" y="150" width="1090" height="465" rx="22" class="card"/>
+<g transform="translate(95 205)">
+<rect x="0" y="0" width="280" height="100" rx="16" fill="#fde8e6" stroke="#e6b1a8" stroke-width="2"/><text x="140" y="38" text-anchor="middle" class="h">Surgical injury</text><text x="140" y="70" text-anchor="middle" class="small">Tissue damage / inflammation</text>
+<path d="M290 50h65" class="line"/><path d="M345 40l12 10 -12 10" fill="none" stroke="#47657c" stroke-width="3"/>
+<rect x="365" y="0" width="280" height="100" rx="16" fill="#eaf2fa" stroke="#9bb8d4" stroke-width="2"/><text x="505" y="38" text-anchor="middle" class="h">Stress mediators</text><text x="505" y="70" text-anchor="middle" class="small">Cortisol • catecholamines • glucagon</text>
+<path d="M655 50h65" class="line"/><path d="M710 40l12 10 -12 10" fill="none" stroke="#47657c" stroke-width="3"/>
+<rect x="730" y="0" width="280" height="100" rx="16" fill="#fff2dc" stroke="#e6c98f" stroke-width="2"/><text x="870" y="38" text-anchor="middle" class="h">Metabolic changes</text><text x="870" y="70" text-anchor="middle" class="small">Insulin resistance • catabolism</text>
+<path d="M870 110v60" class="line"/><path d="M860 160l10 12 10 -12" fill="none" stroke="#47657c" stroke-width="3"/>
+<rect x="0" y="190" width="1010" height="130" rx="18" fill="#e9f5ee" stroke="#9bcbb5" stroke-width="2"/>
+<text x="28" y="232" class="label">Glycogenolysis + gluconeogenesis</text><text x="28" y="265" class="t">↑ glucose production • hyperglycaemia</text>
+<text x="360" y="232" class="label">Proteolysis</text><text x="360" y="265" class="t">Muscle breakdown • nitrogen loss</text>
+<text x="690" y="232" class="label">Lipolysis</text><text x="690" y="265" class="t">Fatty acids used as fuel</text>
+<text x="0" y="385" class="small">Magnitude depends on injury severity, infection, age, comorbidity, analgesia, mobilisation and perioperative care.</text>
+</g></svg>
