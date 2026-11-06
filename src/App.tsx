@@ -30,6 +30,7 @@ const EssayStudy = lazy(() => import("./pages/EssayStudy"));
 const Login = lazy(() => import("./pages/Login"));
 const Admin = lazy(() => import("./pages/Admin"));
 const YearHub = lazy(() => import("./pages/YearHub"));
+const GeneralSurgeryCourseOutline = lazy(() => import("./pages/GeneralSurgeryCourseOutline"));
 const CategoryManager = lazy(() => import("./pages/CategoryManager"));
 const About = lazy(() => import("./pages/About"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -57,6 +58,7 @@ const App = () => (
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/year/:yearNumber" element={<YearHub />} />
+                <Route path="/course-outline/mbsg-4600" element={<GeneralSurgeryCourseOutline />} />
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/blog/:slug" element={<BlogPost />} />
                 <Route path="/flashcards" element={<Flashcards />} />
