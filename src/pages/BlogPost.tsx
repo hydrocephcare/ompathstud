@@ -2031,6 +2031,22 @@ export default function BlogPost() {
               password={(article as any).access_password}
               storageKey={article.slug || article.id}
             >
+            {[
+              "surgical-incisions-suture-materials-types-techniques",
+              "nutrition-fluid-therapy-surgical-patients",
+              "preoperative-care-assessment-risk-stratification-surgery",
+              "postoperative-care-assessment-surgical-patient",
+            ].includes(article.slug || "") && (
+              <div className="mb-4 flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center rounded-full border border-primary/25 bg-primary/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-primary">
+                  This semester's work
+                </span>
+                <span className="text-xs text-muted-foreground">MBChB IV · MBSG 4600 · MBSG 4611 · Trimester I</span>
+                <Link to="/course-outline/mbsg-4600" className="text-xs font-semibold text-primary hover:underline">
+                  View course outline
+                </Link>
+              </div>
+            )}
             <ClassicHero
               title={cleanMetaTitle(article)}
               image={article.og_image_url || extractFirstImageFromContent(article.content || "") || ""}
