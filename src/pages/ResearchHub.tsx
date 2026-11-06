@@ -88,7 +88,17 @@ export default function ResearchHub() {
         isPartOf: { "@type": "WebSite", name: "OmpathStudy", url: SITE_URL },
       },
     });
-  }, [pageTitle, description, canonical]);
+
+    // University pages remain crawlable through links but are not indexed until
+    // institution-specific requirements have been researched and verified.
+    let robots = document.querySelector('meta[name="robots"]');
+    if (!robots) {
+      robots = document.createElement("meta");
+      robots.setAttribute("name", "robots");
+      document.head.appendChild(robots);
+    }
+    robots.setAttribute("content", university ? "noindex,follow" : "index,follow");
+  }, [pageTitle, description, canonical, university]);
 
   return (
     <main className="min-h-dvh bg-background">
