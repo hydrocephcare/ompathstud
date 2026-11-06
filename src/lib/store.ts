@@ -483,7 +483,7 @@ function toArticlePreview(row: any): Article {
 
 // ─── Cache ────────────────────────────────────────────────────────────────────
 const SUMMARY_CACHE_KEY = "article_summaries_cache_v2";
-const SUMMARY_CACHE_TTL = 5 * 60 * 1000; // 5 minutes — avoids repeated full-list reloads on a large site
+const SUMMARY_CACHE_TTL = 30 * 1000; // 30 seconds — newly published notes appear promptly across unit views
 
 let memorySummaryCache: { data: Article[]; ts: number } | null = null;
 
