@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f7fbff"/><stop offset="1" stop-color="#edf4fb"/></linearGradient>
+ <linearGradient id="navy" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#12304a"/><stop offset="1" stop-color="#1f5274"/></linearGradient>
+ <style>
+ text{font-family:Inter,Arial,sans-serif;fill:#17324a}
+ .title{font-size:34px;font-weight:750;fill:#fff}.sub{font-size:17px;fill:#dbeafe}
+ .h{font-size:21px;font-weight:700}.t{font-size:17px}.small{font-size:14px;fill:#526779}
+ .card{fill:#fff;stroke:#d6e2ed;stroke-width:2}.line{stroke:#47657c;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+ .red{stroke:#d94c4c;stroke-width:8;fill:none;stroke-linecap:round}.blue{stroke:#2476b8;stroke-width:7;fill:none;stroke-linecap:round}.green{stroke:#16876b;stroke-width:7;fill:none;stroke-linecap:round}
+ .label{font-size:16px;font-weight:700}.muted{fill:#637b8e}
+ </style>
+</defs>
+<rect width="1200" height="720" rx="28" fill="url(#bg)"/>
+<rect x="0" y="0" width="1200" height="112" rx="28" fill="url(#navy)"/>
+<rect x="0" y="84" width="1200" height="28" fill="url(#navy)"/>
+<text x="54" y="52" class="title">Surgical needles and wound-closure patterns</text><text x="56" y="82" class="sub">Choose needle geometry and stitch pattern according to tissue, tension and desired eversion</text>
+<rect x="55" y="150" width="1090" height="465" rx="22" class="card"/>
+<g transform="translate(95 205)">
+<text x="0" y="0" class="h">Needle points</text>
+<path d="M0 75 Q80 5 160 75" class="line"/><path d="M160 75l-18 -5 10 16" fill="#47657c"/><text x="0" y="125" class="label">Taper point</text><text x="0" y="152" class="small">Separates soft tissue fibres</text>
+<path d="M260 75 Q340 5 420 75" class="line"/><path d="M420 75l-18 -5 10 16" fill="#47657c"/><path d="M330 42l12 20" stroke="#d94c4c" stroke-width="4"/><text x="260" y="125" class="label">Cutting / reverse cutting</text><text x="260" y="152" class="small">Penetrates tougher tissue / skin</text>
+<path d="M555 75 Q635 5 715 75" class="line"/><circle cx="715" cy="75" r="7" fill="#47657c"/><text x="555" y="125" class="label">Blunt point</text><text x="555" y="152" class="small">Friable tissue, e.g. liver</text>
+<text x="0" y="230" class="h">Closure patterns</text>
+<g transform="translate(0 260)">
+<path d="M0 35h170" stroke="#c98c72" stroke-width="16"/><path d="M35 5l25 60 M85 5l25 60 M135 5l25 60" stroke="#2476b8" stroke-width="5"/><text x="0" y="100" class="label">Simple interrupted</text>
+<path d="M260 35h170" stroke="#c98c72" stroke-width="16"/><path d="M275 5l30 60 30 -60 30 60 30 -60 30 60" stroke="#2476b8" stroke-width="4" fill="none"/><text x="260" y="100" class="label">Continuous / running</text>
+<path d="M555 35h170" stroke="#c98c72" stroke-width="16"/><path d="M575 5l25 60 25 -60 25 60 25 -60 25 60" stroke="#16876b" stroke-width="4" fill="none"/><text x="555" y="100" class="label">Mattress pattern</text>
+<path d="M820 35h170" stroke="#c98c72" stroke-width="16"/><path d="M835 35h140" stroke="#a65c9a" stroke-width="4" stroke-dasharray="8 7"/><text x="820" y="100" class="label">Subcuticular</text>
+</g></g></svg>
