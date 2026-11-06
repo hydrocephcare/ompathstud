@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f7fbff"/><stop offset="1" stop-color="#edf4fb"/></linearGradient>
+ <linearGradient id="navy" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#12304a"/><stop offset="1" stop-color="#1f5274"/></linearGradient>
+ <style>
+ text{font-family:Inter,Arial,sans-serif;fill:#17324a}
+ .title{font-size:34px;font-weight:750;fill:#fff}.sub{font-size:17px;fill:#dbeafe}
+ .h{font-size:21px;font-weight:700}.t{font-size:17px}.small{font-size:14px;fill:#526779}
+ .card{fill:#fff;stroke:#d6e2ed;stroke-width:2}.line{stroke:#47657c;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+ .red{stroke:#d94c4c;stroke-width:8;fill:none;stroke-linecap:round}.blue{stroke:#2476b8;stroke-width:7;fill:none;stroke-linecap:round}.green{stroke:#16876b;stroke-width:7;fill:none;stroke-linecap:round}
+ .label{font-size:16px;font-weight:700}.muted{fill:#637b8e}
+ </style>
+</defs>
+<rect width="1200" height="720" rx="28" fill="url(#bg)"/>
+<rect x="0" y="0" width="1200" height="112" rx="28" fill="url(#navy)"/>
+<rect x="0" y="84" width="1200" height="28" fill="url(#navy)"/>
+<text x="54" y="52" class="title">Body-fluid compartments</text><text x="56" y="82" class="sub">Approximate distribution in a 70 kg adult with total body water of 42 L</text>
+<rect x="55" y="150" width="1090" height="465" rx="22" class="card"/>
+<g transform="translate(105 205)">
+<rect x="0" y="0" width="250" height="330" rx="18" fill="#e9f2fb" stroke="#9bbbd8" stroke-width="2"/>
+<rect x="0" y="0" width="250" height="220" rx="18" fill="#8fc3e7"/><text x="125" y="85" text-anchor="middle" class="h">ICF</text><text x="125" y="120" text-anchor="middle" class="t">28 L</text><text x="125" y="150" text-anchor="middle" class="small">≈ ⅔ of TBW</text>
+<rect x="0" y="220" width="250" height="110" rx="0" fill="#b8d9ee"/><text x="125" y="270" text-anchor="middle" class="h">ECF 14 L</text><text x="125" y="300" text-anchor="middle" class="small">≈ ⅓ of TBW</text>
+<path d="M300 220h90" class="line"/><text x="405" y="225" class="label">ECF subdivisions</text>
+<rect x="405" y="250" width="260" height="95" rx="14" fill="#d8e9f5" stroke="#9bbbd8" stroke-width="2"/><text x="425" y="285" class="label">Interstitial ≈ 10.5 L</text><text x="425" y="315" class="small">Fluid between cells</text>
+<rect x="695" y="250" width="260" height="95" rx="14" fill="#e6f5ef" stroke="#9bcbb5" stroke-width="2"/><text x="715" y="285" class="label">Plasma ≈ 3.5 L</text><text x="715" y="315" class="small">Intravascular fluid</text>
+<text x="405" y="90" class="h">Major ions</text><text x="405" y="135" class="t">Extracellular: sodium (Na⁺) is the major cation.</text><text x="405" y="175" class="t">Intracellular: potassium (K⁺) is the major cation.</text>
+<text x="405" y="420" class="small">Values are approximations; vary with age, sex and body composition.</text>
+</g></svg>
