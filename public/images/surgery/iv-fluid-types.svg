@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f7fbff"/><stop offset="1" stop-color="#edf4fb"/></linearGradient>
+ <linearGradient id="navy" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#12304a"/><stop offset="1" stop-color="#1f5274"/></linearGradient>
+ <style>
+ text{font-family:Inter,Arial,sans-serif;fill:#17324a}
+ .title{font-size:34px;font-weight:750;fill:#fff}.sub{font-size:17px;fill:#dbeafe}
+ .h{font-size:21px;font-weight:700}.t{font-size:17px}.small{font-size:14px;fill:#526779}
+ .card{fill:#fff;stroke:#d6e2ed;stroke-width:2}.line{stroke:#47657c;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+ .red{stroke:#d94c4c;stroke-width:8;fill:none;stroke-linecap:round}.blue{stroke:#2476b8;stroke-width:7;fill:none;stroke-linecap:round}.green{stroke:#16876b;stroke-width:7;fill:none;stroke-linecap:round}
+ .label{font-size:16px;font-weight:700}.muted{fill:#637b8e}
+ </style>
+</defs>
+<rect width="1200" height="720" rx="28" fill="url(#bg)"/>
+<rect x="0" y="0" width="1200" height="112" rx="28" fill="url(#navy)"/>
+<rect x="0" y="84" width="1200" height="28" fill="url(#navy)"/>
+<text x="54" y="52" class="title">Common intravenous fluids</text><text x="56" y="82" class="sub">Crystalloids distribute through extracellular fluid; blood components replace specific deficits</text>
+<rect x="55" y="150" width="1090" height="465" rx="22" class="card"/>
+<g transform="translate(95 195)">
+<rect x="0" y="0" width="1010" height="78" rx="14" fill="#dcecf8" stroke="#d5e1ea" stroke-width="1.5"/><text x="22" y="29" class="label">0.9% saline</text><text x="250" y="29" class="t">Na⁺ 154 mmol/L • Cl⁻ 154 mmol/L</text><text x="250" y="56" class="small">Isotonic crystalloid; chloride-rich loss / selected resuscitation</text><rect x="0" y="96" width="1010" height="78" rx="14" fill="#e3f4ec" stroke="#d5e1ea" stroke-width="1.5"/><text x="22" y="125" class="label">Ringer's lactate</text><text x="250" y="125" class="t">Balanced electrolytes + lactate</text><text x="250" y="152" class="small">Resuscitation and replacement in many surgical patients</text><rect x="0" y="192" width="1010" height="78" rx="14" fill="#fff0d5" stroke="#d5e1ea" stroke-width="1.5"/><text x="22" y="221" class="label">5% dextrose</text><text x="250" y="221" class="t">50 g glucose/L; after metabolism, free water</text><text x="250" y="248" class="small">Not a resuscitation fluid for shock</text><rect x="0" y="288" width="1010" height="78" rx="14" fill="#f1e9fa" stroke="#d5e1ea" stroke-width="1.5"/><text x="22" y="317" class="label">0.45% saline</text><text x="250" y="317" class="t">Na⁺ 77 mmol/L • Cl⁻ 77 mmol/L</text><text x="250" y="344" class="small">Hypotonic; selected free-water replacement</text>
+</g></svg>
