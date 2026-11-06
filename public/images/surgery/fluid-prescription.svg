@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f7fbff"/><stop offset="1" stop-color="#edf4fb"/></linearGradient>
+ <linearGradient id="navy" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#12304a"/><stop offset="1" stop-color="#1f5274"/></linearGradient>
+ <style>
+ text{font-family:Inter,Arial,sans-serif;fill:#17324a}
+ .title{font-size:34px;font-weight:750;fill:#fff}.sub{font-size:17px;fill:#dbeafe}
+ .h{font-size:21px;font-weight:700}.t{font-size:17px}.small{font-size:14px;fill:#526779}
+ .card{fill:#fff;stroke:#d6e2ed;stroke-width:2}.line{stroke:#47657c;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+ .red{stroke:#d94c4c;stroke-width:8;fill:none;stroke-linecap:round}.blue{stroke:#2476b8;stroke-width:7;fill:none;stroke-linecap:round}.green{stroke:#16876b;stroke-width:7;fill:none;stroke-linecap:round}
+ .label{font-size:16px;font-weight:700}.muted{fill:#637b8e}
+ </style>
+</defs>
+<rect width="1200" height="720" rx="28" fill="url(#bg)"/>
+<rect x="0" y="0" width="1200" height="112" rx="28" fill="url(#navy)"/>
+<rect x="0" y="84" width="1200" height="28" fill="url(#navy)"/>
+<text x="54" y="52" class="title">The three reasons to prescribe IV fluids</text><text x="56" y="82" class="sub">Assess resuscitation, maintenance and replacement separately; then calculate the total prescription</text>
+<rect x="55" y="150" width="1090" height="465" rx="22" class="card"/>
+<g transform="translate(95 205)">
+<rect x="0" y="0" width="305" height="310" rx="20" fill="#fde8e6" stroke="#d5e1ea" stroke-width="2"/><circle cx="40" cy="45" r="23" fill="#17324a"/><text x="40" y="52" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">1</text><text x="25" y="100" class="label">RESUSCITATION</text><text x="25" y="145" class="h">Restore perfusion</text><text x="25" y="190" class="t">Shock / hypovolaemia</text><text x="25" y="240" class="small">Crystalloid bolus + reassessment</text><rect x="335" y="0" width="305" height="310" rx="20" fill="#e8f1fa" stroke="#d5e1ea" stroke-width="2"/><circle cx="375" cy="45" r="23" fill="#17324a"/><text x="375" y="52" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">2</text><text x="360" y="100" class="label">MAINTENANCE</text><text x="360" y="145" class="h">Meet normal daily needs</text><text x="360" y="190" class="t">Nil by mouth / inadequate intake</text><text x="360" y="240" class="small">Water + electrolytes + glucose as indicated</text><rect x="670" y="0" width="305" height="310" rx="20" fill="#e8f5ee" stroke="#d5e1ea" stroke-width="2"/><circle cx="710" cy="45" r="23" fill="#17324a"/><text x="710" y="52" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">3</text><text x="695" y="100" class="label">REPLACEMENT</text><text x="695" y="145" class="h">Replace measured abnormal losses</text><text x="695" y="190" class="t">Vomiting / NG / drains / stoma</text><text x="695" y="240" class="small">Match volume and electrolyte composition</text>
+<text x="0" y="385" class="h">Always reassess</text><text x="0" y="425" class="t">Blood pressure • pulse • capillary refill • mental state • urine output • lactate when indicated • lungs / oxygenation</text>
+</g></svg>
