@@ -33,6 +33,7 @@ const YearHub = lazy(() => import("./pages/YearHub"));
 const GeneralSurgeryCourseOutline = lazy(() => import("./pages/GeneralSurgeryCourseOutline"));
 const CategoryManager = lazy(() => import("./pages/CategoryManager"));
 const About = lazy(() => import("./pages/About"));
+const ResearchHub = lazy(() => import("./pages/ResearchHub"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -77,6 +78,7 @@ const App = () => (
                 <Route path="/login" element={<Login />} />
                 <Route path="/admin" element={<Admin />} />
                 <Route path="/about" element={<About />} />
+                <Route path="/research/*" element={<ResearchHub />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
