@@ -112,6 +112,23 @@ export default function YearHub() {
         <p className="mt-2 text-sm text-muted-foreground">Choose a section below to continue with {yearLabel} content only.</p>
       </div>
 
+      {parsedYear === 4 && (
+        <Link
+          to="/course-outline/mbsg-4600"
+          className="mt-6 flex items-center gap-4 rounded-2xl border border-primary/25 bg-primary/5 p-5 transition-colors hover:border-primary/50 hover:bg-primary/10"
+        >
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+            <BookMarked className="h-5 w-5" />
+          </div>
+          <div className="min-w-0 flex-1">
+            <p className="text-xs font-semibold uppercase tracking-wide text-primary">MBCHB IV · MBSG 4600</p>
+            <h2 className="mt-1 font-serif text-lg font-bold text-foreground">General Surgery Course Outline</h2>
+            <p className="mt-1 text-sm text-muted-foreground">Browse all six junior clerkship courses and lecture topics across three trimesters.</p>
+          </div>
+          <ArrowRight className="h-5 w-5 shrink-0 text-primary" />
+        </Link>
+      )}
+
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
         {sections.map((section) => (
           <Link
