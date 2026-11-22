@@ -288,4 +288,4 @@ Source: `strfwaqvxvkhjbqrwmla` (Supabase project name: Haboz's Project; region e
 - Payment callbacks (OneKitty, Paystack, and generic payment callback) must be ported with signature/transaction verification before any access grants are changed.
 - Storage migration must preserve the private status of `research-documents` and its 10 MB upload limit and allowed document MIME types.
 - Authentication migration must preserve user UUIDs, but password/session migration requires a dedicated compatibility plan; no password hashes or session tokens were copied.
-- Current import into D1 staging is limited to `academic_years` (6), `semesters` (13), and `units` (82). No production traffic was changed.
+- Current import into D1 staging includes `academic_years` (6), `semesters` (13), and `units` (82), plus a 5-row `articles` smoke test. The full `articles` table (1,334 rows), MCQ sets (1,588), flashcards (710), user data, and remaining tables are not yet imported. No production traffic was changed.
