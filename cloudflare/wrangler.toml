@@ -1,0 +1,8 @@
+name = "ompathstudy-api-staging"
+main = "src/index.ts"
+compatibility_date = "2026-11-22"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "ompathstudy-core-staging"
+database_id = "9f94b967-ea52-450b-bc17-8b45bbc4182b"
