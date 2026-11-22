@@ -1,0 +1,291 @@
+# STRF Supabase migration inventory
+
+Source: `strfwaqvxvkhjbqrwmla` (Supabase project name: Haboz's Project; region eu-west-1; status ACTIVE_HEALTHY).
+
+## Core objects
+- Public base tables: 113
+- Public functions: 106 (91 SECURITY DEFINER)
+- Public triggers: 20
+- Public RLS policies: 184
+- Active Supabase Edge Functions: 42
+- Auth users: 102; identities: 102; sessions at audit time: 83
+- Storage buckets: contest-posters (public), page-audio (public), research-documents (private), story-covers (public)
+
+## High-value table row counts
+- `articles`: 1334
+- `mcq_sets`: 1588
+- `flashcard_sets`: 710
+- `units`: 82
+- `profiles`: 102
+- `payments`: 15
+- `student_access`: 25
+
+## Trigger inventory
+- `academic_years.trg_academic_years_updated_at`: BEFORE UPDATE → EXECUTE FUNCTION set_updated_at()
+- `articles.trg_articles_updated_at`: BEFORE UPDATE → EXECUTE FUNCTION set_updated_at()
+- `contest_registrations.contest_registration_guard`: BEFORE INSERT → EXECUTE FUNCTION private.contest_registration_guard()
+- `contest_registrations.contest_registration_notification`: AFTER INSERT → EXECUTE FUNCTION private.notify_contest_registration()
+- `contest_registrations.contest_registration_notification`: AFTER UPDATE → EXECUTE FUNCTION private.notify_contest_registration()
+- `essays.trg_essays_updated_at`: BEFORE UPDATE → EXECUTE FUNCTION set_updated_at()
+- `flashcard_sets.set_flashcard_set_owner_id`: BEFORE INSERT → EXECUTE FUNCTION set_content_owner_id()
+- `flashcard_sets.trg_flashcard_sets_updated_at`: BEFORE UPDATE → EXECUTE FUNCTION set_updated_at()
+- `mcq_sets.set_mcq_set_owner_id`: BEFORE INSERT → EXECUTE FUNCTION set_content_owner_id()
+- `mcq_sets.trg_mcq_sets_updated_at`: BEFORE UPDATE → EXECUTE FUNCTION set_updated_at()
+- `medical_concepts.trg_medical_concepts_updated_at`: BEFORE UPDATE → EXECUTE FUNCTION set_updated_at()
+- `revision_plan_items.trg_revision_plan_items_updated_at`: BEFORE UPDATE → EXECUTE FUNCTION set_updated_at()
+- `revision_plans.trg_revision_plans_updated_at`: BEFORE UPDATE → EXECUTE FUNCTION set_updated_at()
+- `search_aliases.trg_search_aliases_updated_at`: BEFORE UPDATE → EXECUTE FUNCTION set_updated_at()
+- `semesters.trg_semesters_updated_at`: BEFORE UPDATE → EXECUTE FUNCTION set_updated_at()
+- `slide_corrections.update_slide_corrections_updated_at`: BEFORE UPDATE → EXECUTE FUNCTION set_slide_corrections_updated_at()
+- `syllabus_topics.trg_syllabus_topics_updated_at`: BEFORE UPDATE → EXECUTE FUNCTION set_updated_at()
+- `units.trg_units_updated_at`: BEFORE UPDATE → EXECUTE FUNCTION set_updated_at()
+- `user_resource_progress.trg_user_resource_progress_updated_at`: BEFORE UPDATE → EXECUTE FUNCTION set_updated_at()
+- `user_topic_progress.trg_user_topic_progress_updated_at`: BEFORE UPDATE → EXECUTE FUNCTION set_updated_at()
+
+## Function inventory
+- `_process_admission(_uid uuid, _email text, _entered text)` — plpgsql; SECURITY DEFINER
+- `_slugify(input text)` — sql
+- `admin_add_student(_email text, _admission text)` — plpgsql; SECURITY DEFINER
+- `admin_agent_decide(p_id uuid, p_approve boolean)` — plpgsql; SECURITY DEFINER
+- `admin_agent_log(p_capability text, p_summary text, p_detail jsonb, p_undo jsonb)` — plpgsql; SECURITY DEFINER
+- `admin_agent_run()` — plpgsql; SECURITY DEFINER
+- `admin_agent_set_mode(p_key text, p_mode text)` — plpgsql; SECURITY DEFINER
+- `admin_agent_status()` — plpgsql; SECURITY DEFINER
+- `admin_agent_undo(p_log_id uuid)` — plpgsql; SECURITY DEFINER
+- `admin_background_jobs()` — plpgsql; SECURITY DEFINER
+- `admin_billing_overview()` — plpgsql; SECURITY DEFINER
+- `admin_clean_my_notifications(p_days integer)` — plpgsql; SECURITY DEFINER
+- `admin_create_custom_pass(p_code text, p_days integer, p_plan text, p_email text)` — plpgsql; SECURITY DEFINER
+- `admin_delete_contest(p_slug text)` — plpgsql; SECURITY DEFINER
+- `admin_exam_papers()` — sql
+- `admin_grant_pass(p_email text, p_days integer, p_plan text)` — plpgsql; SECURITY DEFINER
+- `admin_job_control(p_job text, p_action text, p_minutes integer)` — plpgsql; SECURITY DEFINER
+- `admin_list_passes(p_limit integer)` — plpgsql; SECURITY DEFINER
+- `admin_mark_requests_seen()` — plpgsql; SECURITY DEFINER
+- `admin_mcq_distribution(p_min_questions integer)` — plpgsql; SECURITY DEFINER
+- `admin_mcq_distribution_total()` — plpgsql; SECURITY DEFINER
+- `admin_recent_visits(p_limit integer)` — plpgsql; SECURITY DEFINER
+- `admin_replace_contest_questions(p_round_id uuid, p_questions jsonb)` — plpgsql; SECURITY DEFINER
+- `admin_review_student(_uid uuid, _approve boolean, _note text)` — plpgsql; SECURITY DEFINER
+- `admin_revoke_pass(p_id uuid, p_email text)` — plpgsql; SECURITY DEFINER
+- `admin_set_contest_rules(p_contest_id uuid, p_university_ids uuid[], p_auto_verify boolean)` — plpgsql; SECURITY DEFINER
+- `admin_site_engagement(p_days integer)` — plpgsql; SECURITY DEFINER
+- `admin_site_stats(p_days integer)` — plpgsql; SECURITY DEFINER
+- `admin_visitor_detail(p_person text, p_days integer)` — plpgsql; SECURITY DEFINER
+- `admin_visitor_list(p_days integer, p_limit integer, p_offset integer, p_include_admins boolean)` — plpgsql; SECURITY DEFINER
+- `ai_cache_report(k text)` — sql; SECURITY DEFINER
+- `ai_cache_touch(k text)` — sql; SECURITY DEFINER
+- `ai_cache_trending(n integer)` — sql; SECURITY DEFINER
+- `bump_story_view(p_story uuid)` — plpgsql; SECURITY DEFINER
+- `can_reveal_content()` — sql; SECURITY DEFINER
+- `category_counts()` — sql; SECURITY DEFINER
+- `cleanup_lite_health_data()` — plpgsql; SECURITY DEFINER
+- `consume_feature(p_feature text, p_units integer)` — plpgsql; SECURITY DEFINER
+- `essay_pending_candidates(n integer)` — sql; SECURITY DEFINER
+- `exam_catalog()` — sql
+- `flashcard_catalog()` — sql
+- `handle_new_user()` — plpgsql; SECURITY DEFINER
+- `handle_new_user_admission()` — plpgsql; SECURITY DEFINER
+- `has_active_subscription()` — sql; SECURITY DEFINER
+- `has_role(_user_id uuid, _role app_role)` — sql; SECURITY DEFINER
+- `home_recent(limit_n integer)` — sql; SECURITY DEFINER
+- `is_mku_student(_uid uuid)` — sql; SECURITY DEFINER
+- `lite_library_summary()` — sql; SECURITY DEFINER
+- `lite_sets_for_year(p_year integer)` — sql; SECURITY DEFINER
+- `my_mistakes(p_limit integer)` — plpgsql; SECURITY DEFINER
+- `my_performance()` — plpgsql; SECURITY DEFINER
+- `my_site_activity(p_days integer)` — plpgsql; SECURITY DEFINER
+- `my_student_status()` — sql; SECURITY DEFINER
+- `normalize_admission(raw text)` — plpgsql; SECURITY DEFINER
+- `note_essay_candidates(n integer)` — sql; SECURITY DEFINER
+- `note_flashcard_candidates(n integer)` — sql; SECURITY DEFINER
+- `note_mcq_candidates(n integer)` — sql; SECURITY DEFINER
+- `note_mcq_topup_candidates(n integer)` — sql; SECURITY DEFINER
+- `paper_answer_miss(_slug text, _qkey text)` — sql; SECURITY DEFINER
+- `paper_candidates(n integer)` — sql
+- `polish_write_ok()` — sql; SECURITY DEFINER
+- `publish_topic_page(p_slug text, p_name text, p_category text, p_content jsonb, p_model text)` — plpgsql; SECURITY DEFINER
+- `save_topic_deep(p_slug text, p_name text, p_category text, p_base jsonb, p_deep jsonb)` — plpgsql; SECURITY DEFINER
+- `score_contest_attempt(p_attempt_id uuid)` — plpgsql; SECURITY DEFINER
+- `set_content_owner_id()` — plpgsql
+- `set_slide_corrections_updated_at()` — plpgsql
+- `set_updated_at()` — plpgsql
+- `slugify_title(t text)` — sql
+- `story_owner_tag(uid uuid)` — sql
+- `submit_admission(_entered text)` — plpgsql; SECURITY DEFINER
+- `track_site_event(p_visitor text, p_event_name text, p_path text, p_properties jsonb)` — plpgsql; SECURITY DEFINER
+- `track_visit(p_visitor text, p_path text, p_device text, p_ref text, p_beat boolean)` — plpgsql; SECURITY DEFINER
+- `vote_topic(p_slug text, p_visitor text, p_vote integer)` — plpgsql; SECURITY DEFINER
+- `zone_add_friend(p_code text)` — plpgsql; SECURITY DEFINER
+- `zone_ai_calc(p_room zone_rooms, p_n integer)` — plpgsql
+- `zone_answer(p_code text, p_token text, p_seq integer, p_choice integer, p_ms integer)` — plpgsql; SECURITY DEFINER
+- `zone_close_mine(p_code text)` — plpgsql; SECURITY DEFINER
+- `zone_close_stale()` — plpgsql; SECURITY DEFINER
+- `zone_create(p_title text, p_topic text, p_mode text, p_settings jsonb, p_ai jsonb, p_questions jsonb, p_nick text, p_token text)` — plpgsql; SECURITY DEFINER
+- `zone_end(p_code text, p_token text)` — plpgsql; SECURITY DEFINER
+- `zone_finish_me(p_code text, p_token text)` — plpgsql; SECURITY DEFINER
+- `zone_finish_room(p_rid uuid)` — plpgsql; SECURITY DEFINER
+- `zone_flag_left(p_code text, p_token text)` — plpgsql; SECURITY DEFINER
+- `zone_friends()` — plpgsql; SECURITY DEFINER
+- `zone_get_guide(p_code text)` — plpgsql; SECURITY DEFINER
+- `zone_is_live(p_room zone_rooms)` — sql
+- `zone_join(p_code text, p_nick text, p_token text)` — plpgsql; SECURITY DEFINER
+- `zone_my_code(p_nick text)` — plpgsql; SECURITY DEFINER
+- `zone_my_history(p_limit integer)` — plpgsql; SECURITY DEFINER
+- `zone_my_open()` — plpgsql; SECURITY DEFINER
+- `zone_new_code()` — plpgsql
+- `zone_open_list()` — plpgsql; SECURITY DEFINER
+- `zone_pause(p_code text, p_token text)` — plpgsql; SECURITY DEFINER
+- `zone_peek(p_code text)` — plpgsql; SECURITY DEFINER
+- `zone_peek_player(p_code text, p_nick text)` — plpgsql; SECURITY DEFINER
+- `zone_questions_for(p_code text, p_token text)` — plpgsql; SECURITY DEFINER
+- `zone_remove_friend(p_code text)` — plpgsql; SECURITY DEFINER
+- `zone_results(p_code text, p_token text)` — plpgsql; SECURITY DEFINER
+- `zone_resume(p_code text, p_token text)` — plpgsql; SECURITY DEFINER
+- `zone_save_guide(p_code text, p_guide text)` — plpgsql; SECURITY DEFINER
+- `zone_setting(p_room zone_rooms, p_key text, p_default numeric)` — sql
+- `zone_slot_ms(p_room zone_rooms)` — sql
+- `zone_start(p_code text, p_token text)` — plpgsql; SECURITY DEFINER
+- `zone_state(p_code text, p_token text)` — plpgsql; SECURITY DEFINER
+- `zone_sync_lives(p_room zone_rooms, p_n integer)` — plpgsql; SECURITY DEFINER
+- `zone_weak_topics()` — plpgsql; SECURITY DEFINER
+
+## Edge Functions
+- `r2-migrate` — v8; JWT verification: true
+- `bulk-cleanup` — v8; JWT verification: true
+- `import-wordpress` — v8; JWT verification: true
+- `google-drive-oauth` — v8; JWT verification: true
+- `content-upgrade` — v8; JWT verification: true
+- `topic-ai` — v9; JWT verification: true
+- `ocr-scans` — v8; JWT verification: true
+- `note-images` — v8; JWT verification: true
+- `auto-update-articles` — v8; JWT verification: true
+- `initiate-paystack` — v2; JWT verification: true
+- `seo-batch-update` — v8; JWT verification: true
+- `og-preview` — v8; JWT verification: true
+- `access-code` — v8; JWT verification: true
+- `note-mcqs` — v10; JWT verification: false
+- `topic-thumbnail` — v8; JWT verification: true
+- `generate-sitemap` — v10; JWT verification: false
+- `note-cases` — v13; JWT verification: false
+- `contest-control` — v8; JWT verification: true
+- `generate-content` — v10; JWT verification: true
+- `paper-ocr` — v8; JWT verification: true
+- `payment-callback` — v14; JWT verification: false
+- `mcq-hardener` — v8; JWT verification: true
+- `send-notification` — v8; JWT verification: true
+- `paper-doctor` — v8; JWT verification: true
+- `paper-answers` — v8; JWT verification: true
+- `paper-similar` — v8; JWT verification: true
+- `check-payment` — v11; JWT verification: true
+- `mcq-quality-fix` — v8; JWT verification: true
+- `onekitty-initiate` — v16; JWT verification: true
+- `initiate-onekitty-checkout` — v10; JWT verification: true
+- `google-indexing` — v8; JWT verification: true
+- `paystack-webhook` — v1; JWT verification: false
+- `r2-upload` — v8; JWT verification: true
+- `ext-sync` — v8; JWT verification: true
+- `google-drive-import` — v8; JWT verification: true
+- `initiate-payment` — v8; JWT verification: true
+- `note-essays` — v8; JWT verification: true
+- `mcq-auto-audit` — v8; JWT verification: true
+- `note-flashcards` — v10; JWT verification: true
+- `generate-exam` — v11; JWT verification: true
+- `onekitty-callback` — v8; JWT verification: false
+- `vimeo-api` — v8; JWT verification: true
+
+## RLS policy counts by table
+- `academic_years`: 2
+- `admission_rules`: 1
+- `agent_capabilities`: 1
+- `agent_chats`: 4
+- `agent_log`: 1
+- `agent_memory`: 3
+- `agent_proposals`: 1
+- `agent_state`: 1
+- `ai_answer_cache`: 2
+- `ai_cases`: 1
+- `ai_drafts`: 4
+- `ai_failures`: 3
+- `ai_user_history`: 1
+- `app_settings`: 2
+- `article_answer_attempts`: 2
+- `article_categories`: 2
+- `article_comments`: 2
+- `articles`: 2
+- `blog_polish`: 5
+- `client_errors`: 4
+- `concept_link_clicks`: 2
+- `concept_relationships`: 2
+- `content_reports`: 3
+- `contest_advancements`: 1
+- `contest_answers`: 2
+- `contest_appeals`: 1
+- `contest_attempts`: 2
+- `contest_integrity_events`: 1
+- `contest_moderator_actions`: 1
+- `contest_questions`: 4
+- `contest_registrations`: 4
+- `contest_rounds`: 4
+- `contest_universities`: 5
+- `contest_university_results`: 1
+- `contests`: 4
+- `essays`: 2
+- `exam_attempts`: 1
+- `exam_results`: 4
+- `feature_usage`: 1
+- `flashcard_reviews`: 1
+- `flashcard_sets`: 3
+- `mcq_practice_attempts`: 2
+- `mcq_review_log`: 1
+- `mcq_sets`: 2
+- `medical_concept_aliases`: 2
+- `medical_concepts`: 2
+- `note_comments`: 4
+- `note_progress`: 1
+- `notification_campaigns`: 1
+- `notification_preferences`: 1
+- `paper_answers`: 1
+- `paper_fixes`: 1
+- `paper_seo`: 1
+- `paper_similar`: 1
+- `payments`: 4
+- `pending_institutions`: 3
+- `polish_secret`: 1
+- `profiles`: 3
+- `research_documents`: 3
+- `research_projects`: 4
+- `resource_feedback`: 2
+- `resource_topics`: 2
+- `revision_plan_items`: 1
+- `revision_plans`: 1
+- `search_aliases`: 2
+- `semesters`: 2
+- `site_flags`: 2
+- `slide_corrections`: 5
+- `stories`: 6
+- `story_comments`: 3
+- `story_reactions`: 3
+- `story_stats`: 1
+- `student_access`: 2
+- `syllabus_topics`: 2
+- `topic_pages`: 3
+- `topic_votes`: 1
+- `units`: 2
+- `user_answers`: 2
+- `user_bookmarks`: 1
+- `user_notifications`: 3
+- `user_resource_progress`: 1
+- `user_roles`: 1
+- `user_state`: 2
+- `user_study_activity`: 2
+- `user_topic_progress`: 1
+
+## Migration implications
+- D1 baseline contains the 113 public relational table definitions plus migration control metadata. It does not reproduce Supabase Auth, PostgreSQL functions, triggers, RLS, Storage authorization, or Edge Function runtime semantics.
+- The 184 RLS policies must be reimplemented as explicit Worker authorization checks. Pay particular attention to admin-role checks, ownership, payment records, research documents, contest flows, and user progress.
+- SECURITY DEFINER functions must be reviewed individually; never mechanically port their elevated privileges into public Worker endpoints.
+- Payment callbacks (OneKitty, Paystack, and generic payment callback) must be ported with signature/transaction verification before any access grants are changed.
+- Storage migration must preserve the private status of `research-documents` and its 10 MB upload limit and allowed document MIME types.
+- Authentication migration must preserve user UUIDs, but password/session migration requires a dedicated compatibility plan; no password hashes or session tokens were copied.
+- Current import into D1 staging is limited to `academic_years` (6), `semesters` (13), and `units` (82). No production traffic was changed.
